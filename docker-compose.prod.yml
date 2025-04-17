@@ -1,5 +1,10 @@
 version: "3"
 services:
+  nginx:
+    ports:
+      - "80:80"
+    depends_on:
+      - node-app
   node-app:
     build:
       context: .
