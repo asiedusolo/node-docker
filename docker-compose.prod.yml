@@ -3,6 +3,8 @@ services:
   nginx:
     ports:
       - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     restart: unless-stopped
   node-app:
     build:
@@ -16,13 +18,23 @@ services:
     deploy:
       replicas: 2
     restart: unless-stopped
+    volumes: []
     command: node index.js
   
   mongo:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongo-db:/data/db
     restart: unless-stopped
 
   redis:
+    volumes:
+      - redis-data:/data
     restart: unless-stopped
+
+
+volumes:
+  mongo-db:
+  redis-data:
