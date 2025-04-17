@@ -42,7 +42,7 @@ let redisClient = redis.createClient({
 app.use(express.json())
 app.get("/api/v1", (req, res) => {
     console.log("Which node container was called here?")
-    res.send("<h2>Hello World! Kojo Asiedu. Let's get the bag this year.</h2>")
+    res.send("<h2>Hello World! Kojo Asiedu. Let's get the bag this year!!!.</h2>")
 })
 
 
