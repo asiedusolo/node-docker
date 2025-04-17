@@ -14,7 +14,7 @@ services:
       - mongo
   
   mongo:
-    image: mongo
+    image: mongo:4.4
     environment:
       - MONGO_INITDB_ROOT_USERNAME=solomon
       - MONGO_INITDB_ROOT_PASSWORD=mypassword
