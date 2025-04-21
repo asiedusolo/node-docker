@@ -17,6 +17,11 @@ services:
       - SESSION_SECRET=${SESSION_SECRET}
     deploy:
       replicas: 2
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 2,
+        delay: 15s
     restart: unless-stopped
     volumes: []
     command: node index.js
