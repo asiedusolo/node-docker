@@ -1,10 +1,5 @@
-version: "3"
+version: "3.8"
 services:
-  nginx:
-    ports:
-      - "3000:80"
-    depends_on:
-      - node-app
   node-app:
     build:
       context: .
@@ -18,8 +13,6 @@ services:
       - MONGO_USER=solomon
       - MONGO_PASSWORD=mypassword
       - SESSION_SECRET=aoeaoejoajeioajeoj
-    deploy:
-      replicas: 2
     command: npm run dev
   mongo:
     environment:
